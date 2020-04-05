@@ -8,6 +8,7 @@ namespace NewsCSharp
         {
             Console.WriteLine("Hello World!");
             OutVariables.ExampleParsing();
+            OutVariables.ExampleGetting();
         }
     }
 }
