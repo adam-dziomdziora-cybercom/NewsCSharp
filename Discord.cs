@@ -23,6 +23,9 @@ namespace NewsCSharp
 
         public static void ExampleIsANumber()
         {
+            Console.WriteLine();
+            Console.WriteLine("====== Discords - Example Is a Number ======");
+
             var values = new ArrayList();
             values.Add("a");
             values.Add("1a");
@@ -34,6 +37,9 @@ namespace NewsCSharp
             {
                 IsANumber(val);
             }
+
+
+            Console.WriteLine("====================================================================");
         }
     }
 }

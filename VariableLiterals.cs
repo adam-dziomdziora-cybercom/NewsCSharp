@@ -52,12 +52,15 @@ namespace NewsCSharp
 
         public static void ExampleLiterals()
         {
-            Console.WriteLine("===== VARIABLE LITERALS =====");
+            Console.WriteLine();
+            Console.WriteLine("======= VARIABLE LITERALS =======");
+
             Console.WriteLine($"Does One Equal One? {DoesOneEqualOne()}");
             Console.WriteLine($"Does Two Times Fours Equal Eight? {DoesTwoTimesFoursEqualEight()}");
             Console.WriteLine($"Does Ten Thousands Equal Ten Thousands? {DoesTenThousandsEqualTenThousand()}");
             Console.WriteLine($"Does Eighteen nEqual Eighteen? {DoesEighteenEqualEighteen()}");
-            Console.WriteLine("===== =======================");
+
+            Console.WriteLine("====================================================================");
         }
     }
 }

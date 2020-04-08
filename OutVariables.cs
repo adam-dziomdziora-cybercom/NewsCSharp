@@ -91,6 +91,9 @@ namespace NewsCSharp
 
         public static void ExampleGetting()
         {
+            Console.WriteLine();
+            Console.WriteLine("====== Out Variables - Example Getting ======");
+
             var dict = new Dictionary<string, string>();
 
             const string key = "mySecretKey";
@@ -108,10 +111,15 @@ namespace NewsCSharp
             Log(values);
             Console.WriteLine($"=== NOW USING OUT ===");
             Log(valuesUsingOut);
+
+            Console.WriteLine("====================================================================");
         }
 
         public static void ExampleParsing()
         {
+            Console.WriteLine();
+            Console.WriteLine("====== Out Variables - Example Parsing ======");
+
             var test1 = "1.23";
             var test2 = $"1{NumberFormatInfo.CurrentInfo.NumberDecimalSeparator}23";
             var test3 = "1,23";
@@ -139,6 +147,8 @@ namespace NewsCSharp
             Console.WriteLine($"=== NOW USING OUT ===");
             ParseToDoubleUsingOut(minDouble);
             ParseToDoubleUsingOut(maxDouble);
+
+            Console.WriteLine("====================================================================");
         }
 
         private static void Log<T>(IEnumerable<T> list)
