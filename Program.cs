@@ -10,6 +10,7 @@ namespace NewsCSharp
             OutVariables.ExampleParsing();
             OutVariables.ExampleGetting();
             Discord.ExampleIsANumber();
+            VariableLiterals.ExampleLiterals();
         }
     }
 }
