@@ -12,6 +12,7 @@ namespace NewsCSharp
             Discord.ExampleIsANumber();
             VariableLiterals.ExampleLiterals();
             ExpressionBodiedMembersWrapper.ExampleBodiedMembers();
+            PatternMatching.ExampleParsing();
         }
     }
 }
