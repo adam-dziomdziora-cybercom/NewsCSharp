@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace NewsCSharp
 {
@@ -75,6 +77,88 @@ namespace NewsCSharp
             ParseStringToInt("sample incorrect string");
             ParseStringToInt("999999999999999999999999999999999999999999999");
             ParseStringToInt("-999999999999999999999999999999999999999999999");
+
+            Console.WriteLine("====================================================================");
+        }
+
+        public static string JoinStringOld(string separator, params object[] values)
+        {
+            var filteredValues = new List<string>(values.Length);
+            foreach (var item in values)
+            {
+                // null checking must be first condition; otherwise code would explode
+                if (item == null)
+                {
+                    Console.WriteLine("Join String: ignored null");
+                }
+                else if (item.GetType() == typeof(string))
+                {
+                    var s = item as string;
+                    filteredValues.Add(s);
+                }
+                else if (item as IEnumerable<string> != null && (item as IEnumerable<string>).Any())
+                {
+                    var multiS = item as IEnumerable<string>;
+                    filteredValues.Add(string.Join(string.Empty, multiS));
+                }
+                else
+                {
+                    Console.WriteLine($"Join String: skipping not supported value '{item}'");
+                }
+            }
+            var result = string.Join(separator, filteredValues);
+            Console.WriteLine($"Join String result: {result}");
+            return result;
+        }
+
+        public static string JoinString(string separator, params object[] values)
+        {
+            var filteredValues = new List<string>(values.Length);
+            foreach (var item in values)
+            {
+                switch (item)
+                {
+                    case string s:
+                        {
+                            filteredValues.Add(s);
+                            break;
+                        }
+                    case IEnumerable<string> multiS when multiS.Any():
+                        {
+                            filteredValues.Add(string.Join(string.Empty, multiS));
+                            break;
+                        }
+                    // notice that case null can be in different order and code won't explode!
+                    case null:
+                        {
+                            Console.WriteLine("Join String: ignored null");
+                            break;
+                        }
+                    default:
+                        {
+                            Console.WriteLine($"Join String: skipping not supported value '{item}'");
+                            break;
+                        }
+                }
+            }
+            var result = string.Join(separator, filteredValues);
+            Console.WriteLine($"Join String result: {result}");
+            return result;
+        }
+
+        public static void ExampleJoining()
+        {
+            Console.WriteLine();
+            Console.WriteLine("====== Pattern Matching - Example Joining ======");
+
+            const string separator = ", ";
+
+            Console.WriteLine("=== OLD ===");
+            JoinStringOld(separator, "value1", new[] { "val", "ue2" }, new string[0], null, 123, DateTime.Now);
+
+
+            Console.WriteLine("=== NEW ===");
+            JoinString(separator, "value1", new[] { "val", "ue2" }, new string[0], null, 123, DateTime.Now);
 
             Console.WriteLine("====================================================================");
         }

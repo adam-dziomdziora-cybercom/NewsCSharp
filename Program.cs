@@ -13,6 +13,7 @@ namespace NewsCSharp
             VariableLiterals.ExampleLiterals();
             ExpressionBodiedMembersWrapper.ExampleBodiedMembers();
             PatternMatching.ExampleParsing();
+            PatternMatching.ExampleJoining();
         }
     }
 }
