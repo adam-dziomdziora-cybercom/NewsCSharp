@@ -276,5 +276,67 @@ namespace NewsCSharp
 
             Console.WriteLine("====================================================================");
         }
+
+        public static async Task<int> GetMultipleAsync(int secondsDelay)
+        {
+            if (secondsDelay < 0 || secondsDelay > 5)
+            {
+                throw new ArgumentOutOfRangeException("secondsDelay cannot exceed 5.");
+            }
+
+            await Task.Delay(secondsDelay * 1000);
+            return secondsDelay * new Random().Next(2, 10);
+        }
+
+        public static async Task<int> GetMultipleWithLocal(int secondsDelay)
+        {
+            if (secondsDelay < 0 || secondsDelay > 5)
+            {
+                throw new ArgumentOutOfRangeException("secondsDelay cannot exceed 5.");
+            }
+
+            return await GetValueAsync();
+
+            async Task<int> GetValueAsync()
+            {
+                await Task.Delay(secondsDelay * 1000);
+                return secondsDelay * new Random().Next(2, 10);
+            }
+        }
+
+        public static async Task ExampleAsync()
+        {
+            Console.WriteLine();
+            Console.WriteLine("====== Local Function - Example Async ======");
+            try
+            {
+                Console.WriteLine("Executing GetMultipleAsync...");
+
+                var res = await GetMultipleAsync(6);
+                Console.WriteLine("Executing GetValueAsync from Local...");
+
+                Console.WriteLine($"Result: {res}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            Console.WriteLine("=== END OF GetMultipleAsync ===");
+            Console.WriteLine();
+
+            try
+            {
+                var res = await GetMultipleWithLocal(6);
+                Console.WriteLine("Executing GetValueAsync...");
+                Console.WriteLine($"Result: {res}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            Console.WriteLine("=== END OF GetMultipleAsync from Local ===");
+
+            Console.WriteLine("====================================================================");
+        }
     }
 }
