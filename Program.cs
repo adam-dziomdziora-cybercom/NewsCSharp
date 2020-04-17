@@ -15,6 +15,7 @@ namespace NewsCSharp
             PatternMatching.ExampleParsing();
             PatternMatching.ExampleJoining();
             LocalFunction.ExampleOddSequence();
+            LocalFunction.ExampleFibonacci();
         }
     }
 }
