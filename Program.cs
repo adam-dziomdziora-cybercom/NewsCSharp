@@ -14,6 +14,7 @@ namespace NewsCSharp
             ExpressionBodiedMembersWrapper.ExampleBodiedMembers();
             PatternMatching.ExampleParsing();
             PatternMatching.ExampleJoining();
+            LocalFunction.ExampleOddSequence();
         }
     }
 }
