@@ -185,5 +185,96 @@ namespace NewsCSharp
 
             Console.WriteLine("====================================================================");
         }
+
+        public static int FindClosestFibonacciNumber(int number)
+        {
+            if (number < 1 || number > int.MaxValue)
+            {
+                throw new ArgumentOutOfRangeException(nameof(number), $"Maximum value must be between 1 and {int.MaxValue}.");
+            }
+            var n1 = 1;
+            var n2 = 1;
+            var at = n1 + n2;
+
+            while (at <= number)
+            {
+                // this part prevents against the System.OutOfMemoryException
+                long test1 = n1, test2 = n2;
+                if (test1 + test2 > int.MaxValue)
+                {
+                    break;
+                }
+
+                at = n2 + n1;
+                n2 = n1;
+                n1 = at;
+                if (at > number)
+                {
+                    break;
+                }
+            }
+            return n1;
+        }
+
+        public static int FindClosestFibonacciNumberWithLocal(int number)
+        {
+            if (number < 1 || number > int.MaxValue)
+            {
+                throw new ArgumentOutOfRangeException(nameof(number), $"Maximum value must be between 1 and {int.MaxValue}.");
+            }
+            var fibNumber = getNextFibonacciNumber(1, 1);
+            return fibNumber;
+
+            int getNextFibonacciNumber(int n2, int n1)
+            {
+                // this part prevents against the System.OutOfMemoryException
+                long test1 = n1, test2 = n2;
+                if (test1 + test2 > int.MaxValue)
+                {
+                    return n1;
+                }
+
+                var at = n2 + n1;
+                if (at > number)
+                {
+                    return n1;
+                }
+                return getNextFibonacciNumber(n1, at);
+            };
+        }
+
+        public static void ExampleClosestFibonacci()
+        {
+            Console.WriteLine();
+            Console.WriteLine("====== Local Function - Example Closest Fibonacci ======");
+
+            int maxValue = int.MaxValue;
+
+            Console.WriteLine("=== OLD ===");
+            try
+            {
+                var result = FindClosestFibonacciNumber(maxValue);
+                Console.WriteLine("Closest Fibonacci... ");
+                Console.WriteLine("FindClosestFibonacciNumber ({0}): {1}", maxValue, result);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("FindClosestFibonacciNumber ({0}): {1}", maxValue, e);
+            }
+
+            Console.WriteLine("=== NEW ===");
+            try
+            {
+                var result = FindClosestFibonacciNumberWithLocal(maxValue);
+                Console.WriteLine("Closest Fibonacci with local... ");
+                Console.WriteLine("FindClosestFibonacciNumber ({0}): {1}", maxValue, result);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("FindClosestFibonacciNumber ({0}): {1}", maxValue, e);
+            }
+
+            Console.WriteLine("====================================================================");
+        }
     }
 }
