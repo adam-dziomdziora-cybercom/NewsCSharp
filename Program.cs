@@ -19,6 +19,8 @@ namespace NewsCSharp
             LocalFunction.ExampleFibonacci();
             LocalFunction.ExampleClosestFibonacci();
             await LocalFunction.ExampleAsync();
+            StringAsSpan.ExampleIsNullOrEmpty();
+            StringAsSpan.ExampleToUpper();
         }
     }
 }
