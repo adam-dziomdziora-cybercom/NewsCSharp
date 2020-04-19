@@ -21,6 +21,7 @@ namespace NewsCSharp
             await LocalFunction.ExampleAsync();
             StringAsSpan.ExampleIsNullOrEmpty();
             StringAsSpan.ExampleToUpper();
+            await MemoryAndSpan.ExampleMemory();
         }
     }
 }
