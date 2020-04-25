@@ -2,7 +2,7 @@ using System;
 
 namespace NewsCSharp
 {
-    public class Ref1Locals
+    public static class Ref1Locals
     {
         private static void ReplaceWithoutRef(string[] values, Func<string, bool> predicate, string newValue)
         {
@@ -63,9 +63,5 @@ namespace NewsCSharp
 
             Console.WriteLine("====================================================================");
         }
-
-
-
-
     }
 }

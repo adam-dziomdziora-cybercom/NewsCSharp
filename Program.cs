@@ -23,6 +23,7 @@ namespace NewsCSharp
             StringAsSpan.ExampleToUpper();
             await MemoryAndSpan.ExampleMemory();
             Ref1Locals.ExampleReplace();
+            Ref2Semantics.ExampleSemantics();
         }
     }
 }
