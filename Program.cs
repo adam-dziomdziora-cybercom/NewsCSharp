@@ -22,6 +22,7 @@ namespace NewsCSharp
             StringAsSpan.ExampleIsNullOrEmpty();
             StringAsSpan.ExampleToUpper();
             await MemoryAndSpan.ExampleMemory();
+            Ref1Locals.ExampleReplace();
         }
     }
 }

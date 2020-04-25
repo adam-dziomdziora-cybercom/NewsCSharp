@@ -23,8 +23,7 @@ namespace NewsCSharp
         private static async Task DoSomethingAsync(Memory<int> buffer)
         {
             buffer.Span[0] = new Random().Next();
-            await Something(); // Oops! The stack unwinds here, but the buffer below
-                               // cannot survive the continuation.
+            await Something();
             buffer.Span[buffer.Length - 1] = new Random().Next();
         }
 
