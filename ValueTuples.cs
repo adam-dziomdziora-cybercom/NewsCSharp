@@ -26,6 +26,10 @@ namespace NewsCSharp
             var (_, _, canITakeLastElementLikeThat) = namedTuple;
             Console.WriteLine($"last item of named tuple: { canITakeLastElementLikeThat}");
 
+            Console.WriteLine("=== Deconstruct ===");
+            var (_, _, whatIsAreaThen) = new MagicSquare(11, 41);
+            Console.WriteLine($"area of MagicSquare: {whatIsAreaThen}");
+
             Console.WriteLine("====================================================================");
         }
 
@@ -41,5 +45,27 @@ namespace NewsCSharp
             return namedTuple;
         }
 
+        private struct MagicSquare
+        {
+            public MagicSquare(int id, long side)
+            {
+                Id = id;
+                Side = side;
+            }
+
+            public int Id { get; }
+            public long Side { get; }
+            public long Area
+            {
+                get => Side * Side + Id;
+            }
+
+            public void Deconstruct(out int id, out long side, out long area)
+            {
+                id = Id;
+                side = Side;
+                area = Area;
+            }
+        }
     }
 }
