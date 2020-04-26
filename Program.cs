@@ -24,6 +24,7 @@ namespace NewsCSharp
             await MemoryAndSpan.ExampleMemory();
             Ref1Locals.ExampleReplace();
             Ref2Semantics.ExampleSemantics();
+            ValueTuples.ExampleTuples();
         }
     }
 }
