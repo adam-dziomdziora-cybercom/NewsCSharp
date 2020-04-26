@@ -33,6 +33,17 @@ namespace NewsCSharp
             Console.WriteLine("====================================================================");
         }
 
+        public static void ExampleFibonacci()
+        {
+            Console.WriteLine();
+            Console.WriteLine("====== Value Tuples - Example Fibonacci ======");
+
+            Console.WriteLine("=== Get Fibonacci Squares Area ===");
+            GetFibonacciSquaresArea(10);
+
+            Console.WriteLine("====================================================================");
+        }
+
         private static Tuple<string, string, string> GetSimpleTuple()
         {
             var tuple = Tuple.Create("cy", "ber", "com");
@@ -66,6 +77,29 @@ namespace NewsCSharp
                 side = Side;
                 area = Area;
             }
+        }
+
+        private static IEnumerable<(int id, long side, long area)> GetFibonacciSquares(int numberOfSquares)
+        {
+            long n2 = 1, n1 = 1, side = n1;
+            var id = 1;
+            yield return (id++, side, side * side);
+            do
+            {
+                yield return (id++, side, side * side);
+                side += n2;
+                n2 = n1;
+                n1 = side;
+            }
+            while (id <= numberOfSquares);
+        }
+
+        private static long GetFibonacciSquaresArea(int numberOfSquares)
+        {
+            var squares = GetFibonacciSquares(numberOfSquares);
+            var sumAreas = squares.Sum(sq => sq.area);
+            Console.WriteLine("GetFibonacciSquaresArea: total area of {0} squares equals {1:n}", numberOfSquares, sumAreas);
+            return sumAreas;
         }
     }
 }

@@ -25,6 +25,7 @@ namespace NewsCSharp
             Ref1Locals.ExampleReplace();
             Ref2Semantics.ExampleSemantics();
             ValueTuples.ExampleTuples();
+            ValueTuples.ExampleFibonacci();
         }
     }
 }
