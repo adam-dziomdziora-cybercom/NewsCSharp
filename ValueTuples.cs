@@ -39,7 +39,16 @@ namespace NewsCSharp
             Console.WriteLine("====== Value Tuples - Example Fibonacci ======");
 
             Console.WriteLine("=== Get Fibonacci Squares Area ===");
-            GetFibonacciSquaresArea(10);
+            const int fibonacciNumbers = 10;
+            GetFibonacciSquaresArea(fibonacciNumbers);
+
+            Console.WriteLine("=== Get Fibonacci Square By Id ===");
+            var sumOfAreas = Enumerable.Range(1, fibonacciNumbers).Select(p =>
+            {
+                var (_, _, area) = GetFibonacciSquareById(p);
+                return area;
+            }).Sum(x => x);
+            Console.WriteLine($"GetFibonacciSquareById: total area of {fibonacciNumbers} squares equals {sumOfAreas:n}");
 
             Console.WriteLine("====================================================================");
         }
@@ -84,14 +93,13 @@ namespace NewsCSharp
             long n2 = 1, n1 = 1, side = n1;
             var id = 1;
             yield return (id++, side, side * side);
-            do
+            while (id <= numberOfSquares)
             {
                 yield return (id++, side, side * side);
                 side += n2;
                 n2 = n1;
                 n1 = side;
-            }
-            while (id <= numberOfSquares);
+            };
         }
 
         private static long GetFibonacciSquaresArea(int numberOfSquares)
@@ -100,6 +108,27 @@ namespace NewsCSharp
             var sumAreas = squares.Sum(sq => sq.area);
             Console.WriteLine("GetFibonacciSquaresArea: total area of {0} squares equals {1:n}", numberOfSquares, sumAreas);
             return sumAreas;
+        }
+
+        private static (int id, long side, long area) GetFibonacciSquareById(int id)
+        {
+            long n2 = 1, n1 = 1, side = n1;
+            var currentId = 2;
+            while (currentId < id)
+            {
+                side += n2;
+                n2 = n1;
+                n1 = side;
+                currentId++;
+            };
+            return (id, side, side * side);
+        }
+
+        private static long GetFibonacciSquareAreaById(int id)
+        {
+            var (_, _, area) = GetFibonacciSquareById(id);
+            Console.WriteLine("GetFibonacciSquareAreaById: area of square {0} equals {1:n}", id, area);
+            return area;
         }
     }
 }
