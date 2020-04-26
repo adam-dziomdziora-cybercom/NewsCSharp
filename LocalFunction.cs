@@ -6,7 +6,7 @@ namespace NewsCSharp
 {
     public static class LocalFunction
     {
-        public static IEnumerable<int> OddSequence(int start, int end)
+        private static IEnumerable<int> OddSequence(int start, int end)
         {
             if (start < 0 || start > 99)
             {
@@ -30,7 +30,7 @@ namespace NewsCSharp
             }
         }
 
-        public static IEnumerable<int> OddSequenceWithLocal(int start, int end)
+        private static IEnumerable<int> OddSequenceWithLocal(int start, int end)
         {
             if (start < 0 || start > 99)
             {
@@ -186,7 +186,7 @@ namespace NewsCSharp
             Console.WriteLine("====================================================================");
         }
 
-        public static int FindClosestFibonacciNumber(int number)
+        private static int FindClosestFibonacciNumber(int number)
         {
             if (number < 1 || number > int.MaxValue)
             {
@@ -216,7 +216,7 @@ namespace NewsCSharp
             return n1;
         }
 
-        public static int FindClosestFibonacciNumberWithLocal(int number)
+        private static int FindClosestFibonacciNumberWithLocal(int number)
         {
             if (number < 1 || number > int.MaxValue)
             {
@@ -277,7 +277,7 @@ namespace NewsCSharp
             Console.WriteLine("====================================================================");
         }
 
-        public static async Task<int> GetMultipleAsync(int secondsDelay)
+        private static async Task<int> GetMultipleAsync(int secondsDelay)
         {
             if (secondsDelay < 0 || secondsDelay > 5)
             {
@@ -288,7 +288,7 @@ namespace NewsCSharp
             return secondsDelay * new Random().Next(2, 10);
         }
 
-        public static async Task<int> GetMultipleWithLocal(int secondsDelay)
+        private static async Task<int> GetMultipleWithLocal(int secondsDelay)
         {
             if (secondsDelay < 0 || secondsDelay > 5)
             {

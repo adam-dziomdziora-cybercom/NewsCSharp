@@ -6,8 +6,7 @@ namespace NewsCSharp
 {
     public static class Discord
     {
-
-        public static bool IsANumber(dynamic var)
+        private static bool IsANumber(dynamic var)
         {
             bool res = double.TryParse(var, out double _);
             if (res)

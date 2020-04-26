@@ -6,7 +6,7 @@ namespace NewsCSharp
 {
     public static class OutVariables
     {
-        public static float ParseToFloat(dynamic var)
+        private static float ParseToFloat(dynamic var)
         {
             float result;
             float.TryParse(var, out result);
@@ -14,14 +14,14 @@ namespace NewsCSharp
             return result;
         }
 
-        public static float ParseToFloatUsingOut(dynamic var)
+        private static float ParseToFloatUsingOut(dynamic var)
         {
             float.TryParse(var, out float result);
 
             return result;
         }
 
-        public static double ParseToDouble(dynamic var)
+        private static double ParseToDouble(dynamic var)
         {
             double result;
             if (double.TryParse(var, out result))
@@ -39,7 +39,7 @@ namespace NewsCSharp
             return result;
         }
 
-        public static double ParseToDoubleUsingOut(dynamic var)
+        private static double ParseToDoubleUsingOut(dynamic var)
         {
             if (double.TryParse(var, out double result))
             {
@@ -56,7 +56,7 @@ namespace NewsCSharp
             return result;
         }
 
-        public static string GetDictionaryValue(IDictionary<string, string> var, string key)
+        private static string GetDictionaryValue(IDictionary<string, string> var, string key)
         {
             // When a program often has to try keys that turn out not to
             // be in the dictionary, TryGetValue can be a more efficient 
@@ -73,7 +73,7 @@ namespace NewsCSharp
             return value;
         }
 
-        public static string GetDictionaryValueUsingOut(IDictionary<string, string> var, string key)
+        private static string GetDictionaryValueUsingOut(IDictionary<string, string> var, string key)
         {
             // When a program often has to try keys that turn out not to
             // be in the dictionary, TryGetValue can be a more efficient 

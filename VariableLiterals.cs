@@ -4,8 +4,7 @@ namespace NewsCSharp
 {
     public static class VariableLiterals
     {
-
-        public static bool DoesOneEqualOne()
+        private static bool DoesOneEqualOne()
         {
             const int trueOne = 1;
 
@@ -14,7 +13,7 @@ namespace NewsCSharp
             return one == trueOne;
         }
 
-        public static bool DoesTwoTimesFoursEqualEight()
+        private static bool DoesTwoTimesFoursEqualEight()
         {
             const int trueEight = 8;
 
@@ -30,7 +29,7 @@ namespace NewsCSharp
             return eight == trueEight;
         }
 
-        public static bool DoesTenThousandsEqualTenThousand()
+        private static bool DoesTenThousandsEqualTenThousand()
         {
             const int trueTenThousands = 10000;
 
@@ -39,7 +38,7 @@ namespace NewsCSharp
             return tenThousands == trueTenThousands;
         }
 
-        public static bool DoesEighteenEqualEighteen()
+        private static bool DoesEighteenEqualEighteen()
         {
             const int trueEighteen = 18;
 
@@ -47,8 +46,6 @@ namespace NewsCSharp
 
             return eighteen == trueEighteen;
         }
-
-
 
         public static void ExampleLiterals()
         {

@@ -6,7 +6,7 @@ namespace NewsCSharp
 {
     public static class PatternMatching
     {
-        public static int ParseStringToIntOld(string s)
+        private static int ParseStringToIntOld(string s)
         {
             int result = 0;
 
@@ -34,7 +34,7 @@ namespace NewsCSharp
             return result;
         }
 
-        public static int ParseStringToInt(string s)
+        private static int ParseStringToInt(string s)
         {
             int result = 0;
 
@@ -81,7 +81,7 @@ namespace NewsCSharp
             Console.WriteLine("====================================================================");
         }
 
-        public static string JoinStringOld(string separator, params object[] values)
+        private static string JoinStringOld(string separator, params object[] values)
         {
             var filteredValues = new List<string>(values.Length);
             foreach (var item in values)
@@ -111,7 +111,7 @@ namespace NewsCSharp
             return result;
         }
 
-        public static string JoinString(string separator, params object[] values)
+        private static string JoinString(string separator, params object[] values)
         {
             var filteredValues = new List<string>(values.Length);
             foreach (var item in values)

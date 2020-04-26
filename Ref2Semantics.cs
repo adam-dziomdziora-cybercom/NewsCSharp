@@ -15,8 +15,6 @@ namespace NewsCSharp
             refSemantics.SumAreasWithClass(refSemantics.RectangleClass, refSemantics.RectangleClass);
             Console.WriteLine($"After SumAreasWithStruct SumAreasWithClass A: {refSemantics.RectangleClass.A} and B: {refSemantics.RectangleClass.B}");
         }
-
-
     }
 
     public class RefSemantics
